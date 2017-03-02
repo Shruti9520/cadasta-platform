@@ -963,3 +963,17 @@ h1 .label {
   text-transform: uppercase;
   padding-bottom: 2px;
 }
+
+/* Clear search box
+______________________________________________________________*/
+.clearable {
+    background: url('/static/img/cross.png') no-repeat right -400px center;
+}
+
+.clearable.icon { 
+    background-position: right 10px center; 
+}
+
+.clearable.on_icon { 
+    cursor: pointer; 
+}  
