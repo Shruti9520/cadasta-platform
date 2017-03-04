@@ -168,7 +168,7 @@
   <form action="#" class="form-inline">
     <div class="form-group">
       <label class="control-label sr-only">{% trans "Search within project for" %}</label>
-      <input type="text" class="form-control pull-left" placeholder="{% trans 'Search within project' %}" value="">
+      <input type="text" class="clearable form-control pull-left" placeholder="{% trans 'Search within project' %}" value="">
       <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
     </div>
   </form>
@@ -194,6 +194,22 @@ window.addEventListener('load', function() {
   });
 });
 </script>
+<script>
+  $(document).ready(function() {
+        function tog(v) { 
+            return v?'addClass':'removeClass';
+        } 
+        $(document).on('input', '.clearable', function() {
+                $(this)[tog(this.value)]('x');
+                  }).on('mousemove', '.x', function(e) {
+                     $(this)[tog(this.offsetWidth-30< e.clientX-this.getBoundingClientRect().left)]('on_x');
+                      }).on('touchstart click', '.on_x', function(ev) {
+                            ev.preventDefault();
+                           $(this).removeClass('x on_x').val('').change();
+                       });
+ });
+</script>
+
 <!-- /.sidebar search box -->
 {% endif %}
 
